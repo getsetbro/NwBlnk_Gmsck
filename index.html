@@ -17,6 +17,7 @@
 	    font-weight: normal;
 	    text-rendering: optimizeLegibility;
 	}
+	/*html, body{height: 100%}*/
   	body{
   		background-image:url('img/bg.jpg');
   		background-position: center top;
@@ -96,7 +97,8 @@
 		top:0;
 		right:0;
 		left:0;
-		height: 100vh;
+		/*bottom: 0;*/
+		height: 100%;
 		overflow: hidden;
 	}
 	#canvas{
@@ -104,7 +106,7 @@
 	  top: 0;
 	  left: 50%;
 	  transform:translateX(-50%);
-	  position: absolute;
+	  position: relative;
 	  pointer-events:none;
 	}
   </style>
