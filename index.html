@@ -43,10 +43,18 @@
 	.Links{
 		margin-top: 30px;
 	}
-	.Links a{
+	.Links > a{
+		display: inline-block;
 		color: white;
+		font-family: sans-serif;
+		text-decoration: none;
 	}
-
+	.Links > a:first-child{
+		margin-right: 55px
+	}
+	.Links > a:hover{
+		text-decoration: underline;
+	}
   </style>
 </head>
 <body>
@@ -70,8 +78,8 @@
 	<a href="#contact"></a>
 </section>
 <section class="Links">
-	<a href="#fb">visit us on Facebook &#9656;</a>
-	<a href="#vimeo">view our reel on Vimeo &#9656;</a>
+	<a href="//facebook.com">visit us on Facebook &#9656;</a>
+	<a href="//vimeo.com">view our reel on Vimeo &#9656;</a>
 </section>
 
 <canvas id="canvas"></canvas>
