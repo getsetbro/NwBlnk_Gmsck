@@ -97,9 +97,10 @@
 		top:0;
 		right:0;
 		left:0;
-		/*bottom: 0;*/
-		height: 100%;
 		overflow: hidden;
+		pointer-events:none;
+		height: 100vh;
+	    min-height: 100%;
 	}
 	#canvas{
 	  display: block;
@@ -109,10 +110,22 @@
 	  position: relative;
 	  pointer-events:none;
 	}
+	.Footer{
+  		background-image:url('img/07_illustration_bottom.png');
+	    background-repeat: no-repeat;
+	    background-position: center bottom;
+	    background-size: contain;
+	    position: absolute;
+		top:0;
+	    right:0;
+	    left:0;
+	    height: 100vh;
+	    min-height: 100%;
+	}
   </style>
 </head>
 <body>
-
+<div class="Footer"></div>
 <section class="SpecialMessage">
 	<img src="img/01_SpecialMessage.svg" alt="Special Message"/>
 </section>
@@ -149,7 +162,7 @@ var ctx = canvas.getContext("2d");
 
 //canvas dimensions
 var W = window.innerWidth * 3;
-var H = window.innerHeight *2;
+var H = window.innerHeight *3;
 canvas.width = W;
 canvas.height = H;
 
@@ -174,9 +187,9 @@ function draw(){
 for(var i = 0; i < mp; i++){
 		var p = particles[i];
   var pr = p.r*5;
-		ctx.moveTo(p.x + 4, p.y + 0);//00 00 top-left
-  ctx.lineTo(p.x + 0,p.y+pr -5);//00 10 bot-left
-  ctx.lineTo(p.x+pr -5, p.y+pr);//10 10 bot-rite
+		ctx.moveTo(p.x + 3, p.y + 0);//00 00 top-left
+  ctx.lineTo(p.x + 0,p.y+pr -6);//00 10 bot-left
+  ctx.lineTo(p.x+pr -6, p.y+pr);//10 10 bot-rite
   ctx.lineTo(p.x + pr, p.y + 3);//10 00 top-rite
   ctx.closePath();
 		//ctx.arc(p.x, p.y, p.r, 0, Math.PI *2, true);
