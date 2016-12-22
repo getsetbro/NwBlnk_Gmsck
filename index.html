@@ -23,29 +23,32 @@
   		background-position: center top;
 
 		margin: 0;
-  		padding: 95px 20px;
+  		padding: 95px 0 170px;
   		position: relative;
   	}
   	*{box-sizing:border-box;}
-  	img, iframe{
+  	img{
   		max-width:100%;
   	}
   	iframe{
+  		width: 100%;
+  		max-width: 1250px;
+	  	height: calc(100vw / 2.0);
   		position: relative;
   		z-index: 1;
   	}
   	@media (max-width:640px){
-  		iframe{
-	  		height: calc(100vw / 2.0);
-  		}
+  		/*iframe{}*/
 	}
+
   	section{
-  		text-align: center
+  		text-align: center;
+  		padding: 0 40px;
   	}
 
   	/*.SpecialMessage{margin-top: 95px;}*/
   	.SpecialMessage > img{width: 505px;}
-  	.Vimeo{margin-top: 10px;}
+  	.Vimeo{margin-top: 10px;padding: 0}
 	.ThankYou{margin-top: 32px;}
 	.ThankYou > img{width: 372px;}
 	.Sigs{margin-top: 30px;}
