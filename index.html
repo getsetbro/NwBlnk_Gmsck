@@ -80,27 +80,33 @@
         .Sigs > img:last-child{display: none}
     }
     .FromFriends{margin-top: 20px;}
-    .FromFriends > img{width: 226px;}
-    .Button{margin-top: 25px;}
-    .Button > a{display: inline-block;}
-    .Button > a > img{width: 300px;}
-    .Button > a > img:last-child{display: none;}
-    .Button > a:hover > img:last-child{display: inline-block;}
-    .Button > a:hover > img:first-child{display: none;}
-    .Links{margin-top: 30px;}
-    .Links > a{
+    .FromFriends > img{width: 261px;}
+
+    .Contact{margin-top: 25px;}
+    .Contact > a{display: inline-block;}
+    .Contact > a > img{width: 234px;}
+    .Contact > a > img:last-child{display: none;}
+    .Contact > a:hover > img:last-child{display: inline-block;}
+    .Contact > a:hover > img:first-child{display: none;}
+    .Social{margin-top: 30px;}
+    .Social > a{
         display: block;
         color: white;
         text-decoration: none;
     }
     @media (min-width:525px){
-        .Links > a{display: inline-block;}
-        .Links > a:first-child{margin-right: 55px}
+        .Social > a{display: inline-block;}
+        .Social > a:first-child{margin-right: 35px}
     }
-    .Links > a:hover{text-decoration: underline;}
-    .Partners{color:#84e9fd; margin-top: 40px; font-size: 12px;}
-    .Partners a{color:#d3f8ff;}
-    .Partners a:hover{color:white;}
+    .Social > a:hover{text-decoration: underline;}
+
+    .links{color:#84e9fd; font-size: 12px;}
+    .links a{color:#d3f8ff;}
+    .links a:hover{color:white;}
+
+    .VenturesPartner{ margin-top: 10px;}
+    .CreativePartners{ margin-top: 40px; }
+
 
     footer{
         background-image: url(img/07_illustration_bottom.png);
@@ -147,7 +153,7 @@
 <section class="Vimeo">
     <div class='Video'>
         <img src="img/blank.png" alt=""/>
-        <iframe src='http://player.vimeo.com/video/142319536' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        <iframe src="//player.vimeo.com/video/159818164?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 </section>
 <section class="ThankYou">
@@ -160,17 +166,20 @@
 <section class="FromFriends">
     <img src="img/05_fromYourFriendsBlank.svg" alt="From Friends"/>
 </section>
-<section class="Button">
+<section class="font links VenturesPartner">
+    <p>a <a href="//www.crrnt.co/">CRNNT</a> ventures partner</p>
+</section>
+<section class="Contact">
     <a href="//www.thenewblank.com/contact">
         <img src="img/06_button_default.svg" alt="Contact"/>
         <img src="img/06_button_hover.svg" alt="Contact"/>
     </a>
 </section>
-<section class="font Links">
+<section class="font Social">
     <a href="//www.facebook.com/thisistnb/">visit us on Facebook &#9656;</a>
     <a href="//vimeo.com/thenewblank">view our reel on Vimeo &#9656;</a>
 </section>
-<section class="font Partners">
+<section class="font links CreativePartners">
     <p>thenewBlank would like to thank our creative partners:</p>
     <p>Phil Peterson <a href="//www.houseofbreakingglass.com">House of Breaking Glass</a></p>
     <p>John Buroker <a href="//hearbysound.com">Hearby</a></p>
@@ -179,6 +188,7 @@
 <div class="Canvas">
     <canvas id="canvas"></canvas>
 </div>
+
 <script>
     //canvas init
     var canvas = document.getElementById("canvas");
