@@ -18,16 +18,35 @@
   		text-align: center
   	}
 
+  	.SpecialMessage{margin-top: 95px;}
+  	.SpecialMessage > img{max-width: 505px;}
+  	.Vimeo{margin-top: 10px;}
+	.ThankYou{margin-top: 32px;}
+	.ThankYou > img{max-width: 372px;}
+	.Sigs{margin-top: 30px;}
+	.Sigs > img{max-width: 460px;}
+	.FromFriends{margin-top: 20px;}
+	.FromFriends > img{max-width: 226px;}
+	.Button{margin-top: 25px;}
+	.Button > a{
+		background-image: url('img/06_button_default.svg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center top;
+		display: inline-block;
+		width:300px;
+		height: 67px;
+	}
+	.Button > a:hover{
+		background-image: url('img/06_button_hover.svg');
+	}
+	.Links{
+		margin-top: 30px;
+	}
+	.Links a{
+		color: white;
+	}
 
-  	.SpecialMessage{
-  		margin-top: 95px;
-  	}
-  	.SpecialMessage > img{
-  		max-width: 505px;
-  	}
-  	.Vimeo{
-  		margin-top: 10px;
-  	}
   </style>
 </head>
 <body>
@@ -36,8 +55,25 @@
 	<img src="img/01_SpecialMessage.svg" alt="Special Message"/>
 </section>
 <section class="Vimeo">
-	<iframe src="//player.vimeo.com/video/193765287?color=000000&title=0&byline=0&portrait=0" width="600" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	<iframe src="//player.vimeo.com/video/193765287?color=000000&title=0&byline=0&portrait=0" width="592" height="330" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </section>
+<section class="ThankYou">
+	<img src="img/03_ThankYouFor.svg" alt="Thank You"/>
+</section>
+<section class="Sigs">
+	<img src="img/04_sigs_desktop.png" alt="Sigs"/>	
+</section>
+<section class="FromFriends">
+	<img src="img/05_fromYourFriendsBlank.svg" alt="From Friends"/>
+</section>
+<section class="Button">
+	<a href="#contact"></a>
+</section>
+<section class="Links">
+	<a href="#fb">visit us on Facebook &#9656;</a>
+	<a href="#vimeo">view our reel on Vimeo &#9656;</a>
+</section>
+
 <canvas id="canvas"></canvas>
 
 <script>
