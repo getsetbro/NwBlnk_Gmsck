@@ -17,12 +17,13 @@
 	    font-weight: normal;
 	    text-rendering: optimizeLegibility;
 	}
-
   	body{
   		background-image:url('img/bg.jpg');
   		background-position: center top;
 
-  		margin:0 20px;
+		margin: 0;
+  		padding: 95px 20px;
+  		position: relative;
   	}
   	*{box-sizing:border-box;}
   	img, iframe{
@@ -41,7 +42,7 @@
   		text-align: center
   	}
 
-  	.SpecialMessage{margin-top: 95px;}
+  	/*.SpecialMessage{margin-top: 95px;}*/
   	.SpecialMessage > img{width: 505px;}
   	.Vimeo{margin-top: 10px;}
 	.ThankYou{margin-top: 32px;}
@@ -90,7 +91,14 @@
 	.Links > a:hover{
 		text-decoration: underline;
 	}
-
+	.Canvas{
+		position: absolute;
+		top:0;
+		right:0;
+		left:0;
+		height: 100vh;
+		overflow: hidden;
+	}
 	#canvas{
 	  display: block;
 	  top: 0;
@@ -129,22 +137,22 @@
 	<a href="//facebook.com">visit us on Facebook &#9656;</a>
 	<a href="//vimeo.com">view our reel on Vimeo &#9656;</a>
 </section>
-
-<canvas id="canvas"></canvas>
-
+<div class="Canvas">
+	<canvas id="canvas"></canvas>
+</div>
 <script>
 //canvas init
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 //canvas dimensions
-var W = window.innerWidth * 2;
+var W = window.innerWidth * 3;
 var H = window.innerHeight *2;
 canvas.width = W;
 canvas.height = H;
 
 //snowflake particles
-var mp = 525; //max particles
+var mp = window.innerWidth; //max particles
 var particles = [];
 for(var i = 0; i < mp; i++){
 	particles.push({
