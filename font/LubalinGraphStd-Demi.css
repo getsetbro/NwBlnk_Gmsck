@@ -1,0 +1,12 @@
+/* Webfont: LubalinGraphStd-Demi */@font-face {
+    font-family: 'ITCLubalinGraphStdBook';
+    src: url('LubalinGraphStd-Demi.eot'); /* IE9 Compat Modes */
+    src: url('LubalinGraphStd-Demi.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('LubalinGraphStd-Demi.woff') format('woff'), /* Modern Browsers */
+         url('LubalinGraphStd-Demi.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('LubalinGraphStd-Demi.svg#LubalinGraphStd-Demi') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
