@@ -6,17 +6,17 @@
   <title>NwBlnk_Gmsck</title>
   <style>
   /* Webfont: LubalinGraphStd-Book */
-  @font-face {
-    font-family: 'ITCLubalinGraphStdBook';
-    src: url('font/LubalinGraphStd-Book.eot'); /* IE9 Compat Modes */
-    src: url('font/LubalinGraphStd-Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('font/LubalinGraphStd-Book.woff') format('woff'), /* Modern Browsers */
-         url('font/LubalinGraphStd-Book.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('font/LubalinGraphStd-Book.svg#LubalinGraphStd-Book') format('svg'); /* Legacy iOS */
-    font-style: normal;
-    font-weight: normal;
-    text-rendering: optimizeLegibility;
-}
+	@font-face {
+	    font-family: 'ITCLubalinGraphStdBook';
+	    src: url('font/LubalinGraphStd-Book.eot'); /* IE9 Compat Modes */
+	    src: url('font/LubalinGraphStd-Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	         url('font/LubalinGraphStd-Book.woff') format('woff'), /* Modern Browsers */
+	         url('font/LubalinGraphStd-Book.ttf') format('truetype'), /* Safari, Android, iOS */
+	         url('font/LubalinGraphStd-Book.svg#LubalinGraphStd-Book') format('svg'); /* Legacy iOS */
+	    font-style: normal;
+	    font-weight: normal;
+	    text-rendering: optimizeLegibility;
+	}
 
   	body{
   		background-image:url('img/bg.jpg');
@@ -24,12 +24,17 @@
 
   		margin:0 20px;
   	}
+  	*{box-sizing:border-box;}
   	img, iframe{
   		max-width:100%;
   	}
+  	iframe{
+  		position: relative;
+  		z-index: 1;
+  	}
   	@media (max-width:640px){
   		iframe{
-	  		height: auto
+	  		height: calc(100vw / 2.0);
   		}
 	}
   	section{
@@ -69,18 +74,30 @@
 		margin-top: 30px;
 	}
 	.Links > a{
-		display: inline-block;
+		display: block;
 		color: white;
 		font-family: ITCLubalinGraphStdBook, sans-serif;
 		text-decoration: none;
 	}
-	@media (min-width:675px){
+	@media (min-width:525px){
+		.Links > a{
+			display: inline-block;
+		}
 		.Links > a:first-child{
 			margin-right: 55px
 		}
 	}
 	.Links > a:hover{
 		text-decoration: underline;
+	}
+
+	#canvas{
+	  display: block;
+	  top: 0;
+	  left: 50%;
+	  transform:translateX(-50%);
+	  position: absolute;
+	  pointer-events:none;
 	}
   </style>
 </head>
@@ -116,7 +133,83 @@
 <canvas id="canvas"></canvas>
 
 <script>
-	
+//canvas init
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+//canvas dimensions
+var W = window.innerWidth * 2;
+var H = window.innerHeight *2;
+canvas.width = W;
+canvas.height = H;
+
+//snowflake particles
+var mp = 525; //max particles
+var particles = [];
+for(var i = 0; i < mp; i++){
+	particles.push({
+		x: Math.floor(Math.random() * W), //x-coordinate
+		y: Math.floor(Math.random() * H), //y-coordinate
+		r: Math.floor(Math.random()*2+1),//radius
+		d: Math.floor(Math.random()* mp) //density
+	});
+}
+
+//Lets draw the flakes
+function draw(){
+	ctx.clearRect(0, 0, W, H);
+	ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+	ctx.beginPath();
+
+for(var i = 0; i < mp; i++){
+		var p = particles[i];
+  var pr = p.r*5;
+		ctx.moveTo(p.x + 4, p.y + 0);//00 00 top-left
+  ctx.lineTo(p.x + 0,p.y+pr -5);//00 10 bot-left
+  ctx.lineTo(p.x+pr -5, p.y+pr);//10 10 bot-rite
+  ctx.lineTo(p.x + pr, p.y + 3);//10 00 top-rite
+  ctx.closePath();
+		//ctx.arc(p.x, p.y, p.r, 0, Math.PI *2, true);
+		//ctx.fillRect(p.x, p.y, p.r, p.r);
+		//ctx.rect(p.x, p.y, p.r, p.r);
+}
+	ctx.fill();
+	update();
+};
+
+//angle will be an ongoing incremental flag. Sin and Cos
+//functions will be applied to it to create vertical and
+//horizontal movements of the flakes
+var angle = 0;
+function update(){
+	angle += 0.0005;
+	for(var i = 0; i < mp; i++){
+		var p = particles[i];
+		//Every particle has its own density which can be used
+  //to make the downward movement different for each flake
+		//Lets make it more random by adding in the radius
+		p.y += Math.cos(angle+p.d) + 1 + p.r/2;
+		p.x += Math.sin(angle) * 2;
+
+  //let flakes enter from the left and right also.
+		if(p.x > W+5 || p.x < -5 || p.y > H){
+			if(i%3 > 0){//66.67% of the flakes
+				particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};
+			}else{//If the flake is exitting from the right
+				if(Math.sin(angle) > 0){//Enter from the left
+					particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};
+				}else{//Enter from the right
+					particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};
+				}
+			}
+		}
+	}
+};
+
+//animation loop
+setInterval(draw, 30);
+//draw();
+
 </script>
 </body>
 </html>
