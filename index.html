@@ -104,6 +104,15 @@
     .BlankLogo{margin-top: 50px;}
     .Finale{margin-top: 25px}
     .Finale p{margin-bottom: 10px;}
+    .Social a{
+        display: block;
+    }
+    @media (min-width:475px){
+        .Social a{
+            display: inline-block;
+        }
+        .margind{margin-right: 45px;}
+    }
 
     footer{
         background-image: url(img/07_illustration_bottom.png);
@@ -148,7 +157,7 @@
 <section class="Vimeo">
     <div class='Video'>
         <img src="img/blank.png" alt=""/>
-        <iframe src="//player.vimeo.com/video/142319536?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="//player.vimeo.com/video/196783614?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 </section>
 <section class="ThankYou">
@@ -175,8 +184,10 @@
 </section>
 <section class="font links Finale">
     <p>a <a href="//www.crrnt.co/">CRNNT</a> ventures partner</p>
-    <p><a href="//www.facebook.com/thisistnb/">visit us on Facebook &#9656;</a></p>
-    <p><a href="//vimeo.com/thenewblank">view our reel &#9656;</a></p>
+    <p class="Social">
+        <a href="//www.facebook.com/thisistnb/" class="margind">visit us on Facebook &#9656;</a>
+        <a href="//vimeo.com/142319536">view our reel &#9656;</a>
+    </p>
 </section>
 
 
@@ -236,7 +247,7 @@
             }
         }
     };
-    setInterval(draw, 45);
+    //setInterval(draw, 45);
 </script>
 </body>
 </html>
